@@ -68,7 +68,7 @@ class MessageController extends Controller
     public function edit($id)
     {
         $message = Message::find($id);
-//        $hobbiesForContact = $contact->hobbies()->pluck('hobbies.id')->toArray();
+//        $messagesForContact = $contact->messages()->pluck('messages.id')->toArray();
         return view('crm.update')->with([
             'name' => $name,
             'location' => $location,
