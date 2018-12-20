@@ -42,6 +42,10 @@ Route::get('/messages/create', 'MessageController@create');
 
 Route::get('/messages', 'MessageController@store');
 
+Route::get('/messages/search', 'MessageController@index');
+
+
+
 Route::get('/test2', 'MessageController@practiceX');
 
 

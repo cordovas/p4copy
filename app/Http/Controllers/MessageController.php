@@ -10,12 +10,10 @@ class MessageController extends Controller
 
     public function index()
     {
-        $message = Message::orderBy('created_at')->get();
+        $messages = Message::orderBy('created_at')->get();
 
-        $newClaims = $claims->sortByDesc('created_at')->take(3);
-        return view('claims.index')->with([
-            'claims' => $claims,
-            'newClaims'=>$newClaims
+        return view('index')->with([
+            'messages' => $messages,
         ]);    }
 
     public function create(Request $request)
