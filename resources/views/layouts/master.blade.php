@@ -19,7 +19,7 @@
 
 <header>
 
-    <header class="page-header">
+    <header>
         <h1>Delete Fox News</h1>
         @include('modules.nav')
     </header>
