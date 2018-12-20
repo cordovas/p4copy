@@ -17,14 +17,10 @@
 </head>
 <body>
 
-<header>
-
-    <header>
+    <header class="page-header">
         <h1>Delete Fox News</h1>
         @include('modules.nav')
     </header>
-
-</header>
 
 <section>
     @yield('content')
