@@ -5,6 +5,6 @@
         <li><b>Story</b>{{ $message->story}}</li>
     </ul>
         <p>
-            <a href='/message/{{ $message->id }}/edit'><i class="fas fa-pencil-alt"></i> Edit </a>
-            <a href='/message/{{ $message->id }}/delete'><i class="fas fa-pencil-alt"></i> Delete </a>
+            <a href='/messages/{{ $message->id }}/edit'><i class="fas fa-pencil-alt"></i> Edit </a>
+            <a href='/messages/{{ $message->id }}/delete'><i class="fas fa-pencil-alt"></i> Delete </a>
 </div>

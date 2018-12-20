@@ -16,8 +16,8 @@
 
         <ul>
 
-            <li><a href='/message/{{ $message->id }}/edit'><i class="fas fa-pencil-alt"></i> Edit</a>
-            <li><a href='/message/{{ $message->id }}/delete'><i class="fas fa-trash-alt"></i> Delete</a>
+            <li><a href='/messages/{{ $message->id }}/edit'><i class="fas fa-pencil-alt"></i> Edit</a>
+            <li><a href='/messages/{{ $message->id }}/delete'><i class="fas fa-trash-alt"></i> Delete</a>
         </ul>
     </div>
 @endsection

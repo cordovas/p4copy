@@ -42,32 +42,26 @@ Route::get('/messages/create', 'MessageController@create');
 Route::post('/messages/post', 'MessageController@store');
 
 /*
- * Show Testimonials
+ * Show All Testimonials
  */
 Route::get('/messages/search', 'MessageController@index');
 
 
 
 /*
- * Edit Testimonials
+ * Edit Testimonials - Single Viewing
  */
 Route::get('/messages/{id}', 'MessageController@crud');
+
 Route::get('/messages/{id}/edit', 'MessageController@editMessage');
 Route::get('/messages/{id}/delete', 'MessageController@deleteMessage');
 
-Route::put('/messages/{id}', 'MessageController@update');
-
-
-
+Route::put('/messages/{id}', 'MessageController@updateMessage');
 
 
 #######
 
 Route::get('/test2', 'MessageController@practiceX');
-
-
-
-
 
 
 Route::get('/test', function () {

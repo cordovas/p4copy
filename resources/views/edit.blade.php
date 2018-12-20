@@ -21,7 +21,7 @@
                 </small>
             @endif
 
-            <input type="text" class="form-control" id="usr" name='name' value='{{ old('name')}}'>
+            <input type="text" class="form-control" id="usr" name='name' value='{{ $message->name}}'>
 
         </div>
 
@@ -33,7 +33,7 @@
                     <div class='error'>{{ $errors->first('location') }}</div>
                 </small>
             @endif
-            <input type="text" class="form-control" id="pwd" name='location' value='{{ old('location')}}'>
+            <input type="text" class="form-control" id="pwd" name='location' value='{{ $message->location}}'>
         </div>
 
 
@@ -41,11 +41,11 @@
             <label for="story">Tell us your story: (500 character limit)*</label>
             @if($errors->get('story'))
                 <small id="emailHelp" class="form-text">
-                    <div class='error'>{{ $errors->first('story') }}</div>
+                    <div class='error'>{{ $message->first('story') }}</div>
                 </small>
             @endif
 
-            <textarea placeholder='How has Fox News ruined your relationship with loved ones?' id="story" class='form-control' name="story" rows="5">{{ old('story')}}</textarea>
+            <textarea placeholder='How has Fox News ruined your relationship with loved ones?' id="story" class='form-control' name="story" rows="5">{{ $message->story}}</textarea>
         </div>
 
 
