@@ -12,9 +12,16 @@ class MessageController extends Controller
        return "just here";
     }
 
-    public function show()
+    public function create(Request $request)
     {
-        return view('show');
+        return view('create');
+    }
+
+
+    public function store(Request $request)
+    {
+        dump($request->all());
+//        return view('create');
     }
 
 //    public function index(Request $request)

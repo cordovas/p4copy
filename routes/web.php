@@ -16,7 +16,12 @@
  */
 Route::get('/', 'WelcomeController');
 
-Route::get('/messages/create', 'MessageController@show');
+Route::get('/messages/create', 'MessageController@create');
+
+Route::get('/messages/', 'MessageController@store');
+
+
+
 
 
 Route::get('/test', function () {

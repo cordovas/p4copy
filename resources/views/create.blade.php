@@ -8,15 +8,15 @@
 
 
 
-    <form action='/search-process' method='GET'>
+    <form action='/messages' method='GET'>
 
         <div class="form-group top-spacing">
             <label for="usr">Name:*</label>
-            <input type="text" class="form-control" id="usr">
+            <input type="text" class="form-control" id="usr" name='name'>
         </div>
         <div class="form-group">
             <label for="pwd">Location*</label>
-            <input type="text" class="form-control" id="pwd">
+            <input type="text" class="form-control" id="pwd" name='location'>
         </div>
 
 
