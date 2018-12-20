@@ -24,7 +24,6 @@ Route::get('/debug', function () {
     } catch (Exception $e) {
         $debug['Database connection test'] = 'FAILED: '.$e->getMessage();
     }
-
     dump($debug);
 });
 
@@ -40,11 +39,20 @@ Route::get('/', 'WelcomeController');
  */
 Route::get('/messages/create', 'MessageController@create');
 
-Route::get('/messages', 'MessageController@store');
+Route::post('/messages', 'MessageController@store');
 
-Route::get('/messages/search', 'MessageController@index');
+Route::post('/messages/search', 'MessageController@index');
 
 
+
+
+/*
+ * Show Testimonials
+ */
+//Route::get('/messages/search', 'MessageController@index');
+
+
+#######
 
 Route::get('/test2', 'MessageController@practiceX');
 

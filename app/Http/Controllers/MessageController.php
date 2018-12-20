@@ -8,39 +8,42 @@ use App\Message;
 class MessageController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+        $request->validate([
+            'name' => 'alpha|required',
+            'location' => 'alpha|required',
+            'story' => 'required'
+        ]);
+
         $messages = Message::orderBy('created_at')->get();
 
         return view('index')->with([
             'messages' => $messages,
-        ]);    }
+        ]);
+    }
 
     public function create(Request $request)
     {
-        return view('create');
-
+        return view('create')->with([
+            'name' => $request->session()->get('name', ''),
+            'location' => $request->session()->get('location', ''),
+            'story' => $request->session()->get('story', ''),
+        ]);
     }
 
     public function store(Request $request)
     {
-        # Validate the request data
-        $request->validate([
-            'name' => 'required|alphaNumeric',
-            'location' =>  'required|alphaNumeric',
-            'story'=>'required|alphaNumeric',
-        ]);
         $message = new Message();
         $message->name = $request->name;
         $message->location = $request->location;
         $message->story = $request->story;
 
         $message->save();
-        return redirect('/message')->with([
+
+        return redirect('/messages')->with([
             'alert' => 'Your message was added.'
         ]);
-
-
     }
 
     public function practiceX()
@@ -57,9 +60,8 @@ class MessageController extends Controller
         # `books` table, with the above data
         $message->save();
 
-        dump('Added: '.$message->name);
+        dump('Added: ' . $message->name);
     }
-
 
 }
 
