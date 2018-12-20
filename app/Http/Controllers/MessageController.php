@@ -17,10 +17,6 @@ class MessageController extends Controller
     {
         return view('create');
 
-//        $hobbies = Hobby::getForCheckboxes();
-//        return view('crm.create')->with([
-//            'hobbies' => $hobbies,
-//        ]);
     }
 
     public function store(Request $request)
@@ -40,13 +36,6 @@ class MessageController extends Controller
         return redirect('/message')->with([
             'alert' => 'Your message was added.'
         ]);
-
-
-//        return redirect('/messages/create')->with([
-//            'name' => $name,
-//            'location' => $location,
-//            'story' => $story
-//        ]);
 
 
     }
