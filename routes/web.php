@@ -52,9 +52,10 @@ Route::get('/messages/search', 'MessageController@index');
  * Edit Testimonials
  */
 Route::get('/messages/{id}', 'MessageController@crud');
-Route::get('/messages/{id}/edit', 'MessageController@crud');
-Route::get('/messages/{id}/delete', 'MessageController@crud');
+Route::get('/messages/{id}/edit', 'MessageController@editMessage');
+Route::get('/messages/{id}/delete', 'MessageController@deleteMessage');
 
+Route::put('/messages/{id}', 'MessageController@update');
 
 
 

@@ -58,3 +58,12 @@ p {
 .right {
     text-align: right;
     }
+
+.fa-pencil-alt:before {
+    content:"\f303"
+}
+
+.fa-trash-alt:before {
+    content:"\f2ed"
+}
+

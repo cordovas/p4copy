@@ -6,7 +6,7 @@
 
 @section('content')
     <section>
-        <h2>Message ID:{{$message->id}}</h2>
+        <h2>Message ID:{{$messages->id}}</h2>
         {{--@foreach($messages as $message)--}}
             {{--@include('messagesShow')--}}
         {{--@endforeach--}}

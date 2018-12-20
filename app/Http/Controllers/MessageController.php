@@ -23,27 +23,27 @@ class MessageController extends Controller
 
         $message->save();
 
-//        return redirect('/messages')->with([
+
+
+        $messages = Message::all();
+//        $messages = Message::orderBy('created_at')->get();
+
+        return view('index')->with([
+            'messages' => $messages
+        ]);
+
+//        return redirect('/messages/{id}/edit')->with([
 //            'alert' => 'Your message was added.'
 //        ]);
 
-        $messages = Message::all();
-        dump($messages);
-
-//        $messages = Message::orderBy('created_at')->get();
-
-        return view('singleMessage')->with([
-            'messages' => $messages
-        ]);
+//        return redirect('/messages/{{$id}}/edit')->with([
+//            'messages' => $messages
+//        ]);
     }
 
     public function create(Request $request)
     {
-//        return view('create')->with([
-//            'name' => $request->session()->get('name', ''),
-//            'location' => $request->session()->get('location', ''),
-//            'story' => $request->session()->get('story', ''),
-//        ]);
+
 
         return view('create');
     }
@@ -64,6 +64,17 @@ class MessageController extends Controller
                 'message' => $message
             ]);
         }
+
+    public function edit($id)
+    {
+        $message = Message::find($id);
+//        $hobbiesForContact = $contact->hobbies()->pluck('hobbies.id')->toArray();
+        return view('crm.update')->with([
+            'name' => $name,
+            'location' => $location,
+            'story' => $story,
+        ]);
+    }
 
     public function practiceX()
     {
