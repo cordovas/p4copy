@@ -39,19 +39,25 @@ Route::get('/', 'WelcomeController');
  */
 Route::get('/messages/create', 'MessageController@create');
 
-Route::post('/messages/post', 'MessageController@index');
-
-
-Route::post('/messages', 'MessageController@store');
-
-
-
-
+Route::post('/messages/post', 'MessageController@store');
 
 /*
  * Show Testimonials
  */
 Route::get('/messages/search', 'MessageController@index');
+
+
+
+/*
+ * Edit Testimonials
+ */
+Route::get('/messages/{id}', 'MessageController@crud');
+Route::get('/messages/{id}/edit', 'MessageController@crud');
+Route::get('/messages/{id}/delete', 'MessageController@crud');
+
+
+
+
 
 
 #######

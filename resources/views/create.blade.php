@@ -44,12 +44,7 @@
                 </small>
             @endif
 
-            <textarea id="story"
-                      class='form-control'
-                      name="story"
-                      rows="5"
-                      placeholder="How has Fox News ruined your relationship with loved ones?">
-                </textarea>
+            <textarea placeholder='How has Fox News ruined your relationship with loved ones?' id="story" class='form-control' name="story" rows="5">{{ old('story')}}</textarea>
         </div>
 
 

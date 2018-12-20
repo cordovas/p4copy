@@ -8,7 +8,7 @@ use App\Message;
 class MessageController extends Controller
 {
 
-    public function index(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'alpha|required',
@@ -27,9 +27,12 @@ class MessageController extends Controller
 //            'alert' => 'Your message was added.'
 //        ]);
 
-        $messages = Message::orderBy('created_at')->get();
+        $messages = Message::all();
+        dump($messages);
 
-        return view('index')->with([
+//        $messages = Message::orderBy('created_at')->get();
+
+        return view('singleMessage')->with([
             'messages' => $messages
         ]);
     }
@@ -43,29 +46,24 @@ class MessageController extends Controller
 //        ]);
 
         return view('create');
-
     }
 
-    public function store(Request $request)
+    public function index(Request $request)
     {
+        $messages = Message::all();
 
-        $request->validate([
-            'name' => 'alpha|required',
-            'location' => 'alpha|required',
-            'story' => 'required'
-        ]);
-
-        $message = new Message();
-        $message->name = $request->name;
-        $message->location = $request->location;
-        $message->story = $request->story;
-
-        $message->save();
-
-        return redirect('/messages')->with([
-            'alert' => 'Your message was added.'
+        return view('index')->with([
+            'messages' => $messages
         ]);
     }
+
+    public function crud($id)
+        {
+            $message = Message::find($id);
+            return view('crud')->with([
+                'message' => $message
+            ]);
+        }
 
     public function practiceX()
     {
