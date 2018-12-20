@@ -23,13 +23,9 @@
         <div class="form-group">
             <label for="story">Tell us your story: (500 character limit)*</label>
             @if(count($errors) > 0)
-                <textarea id="story"
-                          class='form-control'
-                          name="story"
-                          rows="5"
-                          placeholder="How has Fox News ruined your relationship with loved ones?">
+                <textarea placeholder="Describe yourself here..." id="story" class='form-control' name="story" rows="5"></textarea>
                           {{--{{old('story')}}--}}
-                </textarea>
+
 
                 <small id="emailHelp" class="form-text">
                     {{--@foreach($errors->all() as $error)--}}

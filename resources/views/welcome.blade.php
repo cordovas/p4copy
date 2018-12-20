@@ -6,6 +6,5 @@
 
     <p>
         @include('modules.description')
-    </p>
 
 @endsection
