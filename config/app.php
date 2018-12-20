@@ -2,6 +2,13 @@
 
 return [
 
+    'nav' => [
+        '/' => 'Home',
+        '/messages/create' => 'Add testimonial',
+        '/messages/search' => 'View testimonials',
+        '/about' => 'About',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

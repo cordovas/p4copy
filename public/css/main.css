@@ -1,0 +1,60 @@
+
+
+body {
+    width:700px;
+    min-width:400px;
+    text-align;center;
+    margin: 100px auto;
+}
+img {
+    display: block;
+    margin: 0 auto;
+
+}
+h1,h2, h3, h4 {
+    text-align: center;
+}
+
+.questions {
+
+    margin: 20px;
+
+}
+
+img {
+    margin: 20px;
+}
+
+.top-spacing {
+    margin-top: 40px;
+}
+
+#emailHelp {
+    color: red;
+}
+
+.textColor {
+    color: red;
+}
+
+.requiredText {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: #0057E6;
+
+}
+
+p {
+    text-align: center;
+    margin-bottom: 2px;
+
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+    }

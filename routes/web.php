@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*
+ * Home
+ */
+Route::get('/', 'WelcomeController');
+
+Route::get('/messages/create', 'MessageController@show');
 
 
 Route::get('/test', function () {

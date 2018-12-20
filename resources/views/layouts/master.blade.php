@@ -21,7 +21,7 @@
 
     <header class="page-header">
         <h1>Delete Fox News</h1>
-        <h3>Your handy guide to bringing a loved one back to reality </h3>
+        @include('modules.nav')
     </header>
 
 </header>
@@ -29,6 +29,8 @@
 <section>
     @yield('content')
 </section>
+
+<p>
 
 <footer>
     &copy; {{ date('Y') }}
