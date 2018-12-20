@@ -16,24 +16,45 @@ class MessageController extends Controller
             'story' => 'required'
         ]);
 
+        $message = new Message();
+        $message->name = $request->name;
+        $message->location = $request->location;
+        $message->story = $request->story;
+
+        $message->save();
+
+//        return redirect('/messages')->with([
+//            'alert' => 'Your message was added.'
+//        ]);
+
         $messages = Message::orderBy('created_at')->get();
 
         return view('index')->with([
-            'messages' => $messages,
+            'messages' => $messages
         ]);
     }
 
     public function create(Request $request)
     {
-        return view('create')->with([
-            'name' => $request->session()->get('name', ''),
-            'location' => $request->session()->get('location', ''),
-            'story' => $request->session()->get('story', ''),
-        ]);
+//        return view('create')->with([
+//            'name' => $request->session()->get('name', ''),
+//            'location' => $request->session()->get('location', ''),
+//            'story' => $request->session()->get('story', ''),
+//        ]);
+
+        return view('create');
+
     }
 
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'alpha|required',
+            'location' => 'alpha|required',
+            'story' => 'required'
+        ]);
+
         $message = new Message();
         $message->name = $request->name;
         $message->location = $request->location;

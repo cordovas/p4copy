@@ -39,9 +39,11 @@ Route::get('/', 'WelcomeController');
  */
 Route::get('/messages/create', 'MessageController@create');
 
+Route::post('/messages/post', 'MessageController@index');
+
+
 Route::post('/messages', 'MessageController@store');
 
-Route::post('/messages/search', 'MessageController@index');
 
 
 
@@ -49,7 +51,7 @@ Route::post('/messages/search', 'MessageController@index');
 /*
  * Show Testimonials
  */
-//Route::get('/messages/search', 'MessageController@index');
+Route::get('/messages/search', 'MessageController@index');
 
 
 #######
