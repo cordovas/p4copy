@@ -13,8 +13,8 @@ class MessagesTableSeeder extends Seeder
     public function run()
     {
         $messages = [
-            ['Peter', 'New York', 'I just deleted fox news woohoo!'],
-            ['Brian', 'Los Angeles', 'Way to go!'],
+            ['Jill', 'New York', 'I just deleted fox news woohoo!'],
+            ['Jamal', 'Los Angeles', 'Way to go!'],
             ['Michael', 'Detroit', 'About Time'],
             ['Pedro', 'Boston', 'I like this!'],
             ['David', 'Austin', 'We love it!'],

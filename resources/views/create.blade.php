@@ -8,7 +8,7 @@
 
 
 
-    <form action='/messages/post' method='POST'>
+    <form action='/messages' method='POST'>
         {{ csrf_field() }}
 
         <div class="form-group top-spacing">
@@ -44,15 +44,20 @@
                 </small>
             @endif
 
-            <textarea placeholder='How has Fox News ruined your relationship with loved ones?' id="story" class='form-control' name="story" rows="5">{{ old('story')}}</textarea>
+            <textarea placeholder='How has Fox News ruined your relationship with loved ones?'
+                      id="story"
+                      class='form-control'
+                      name="story"
+                      rows="5">{{ old('story')}}</textarea>
         </div>
 
 
         <p class='requiredText textColor right'> * Required fields </p>
 
-
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
+
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use App\Tag;
 
 class MessageController extends Controller
 {
@@ -11,9 +12,9 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'alpha|required',
-            'location' => 'alpha|required',
-            'story' => 'required'
+            'name' => 'string|required',
+            'location' => 'string|required',
+            'story' => 'string|required|max:500'
         ]);
 
         $message = new Message();
@@ -23,76 +24,84 @@ class MessageController extends Controller
 
         $message->save();
 
-
-
         $messages = Message::all();
-//        $messages = Message::orderBy('created_at')->get();
 
-        return view('index')->with([
-            'messages' => $messages
+        return redirect('/messages/')->with([
+            'alert' => 'Your message was added.'
         ]);
-
-//        return redirect('/messages/{id}/edit')->with([
-//            'alert' => 'Your message was added.'
-//        ]);
-
-//        return redirect('/messages/{{$id}}/edit')->with([
-//            'messages' => $messages
-//        ]);
     }
 
     public function create(Request $request)
     {
-
-
         return view('create');
     }
 
     public function index(Request $request)
     {
         $messages = Message::all();
+        $tags = Tag::getForCheckboxes();
 
         return view('index')->with([
-            'messages' => $messages
+            'messages' => $messages,
+            'tags' => $tags,
+
         ]);
     }
 
-    public function crud($id)
-        {
-            $message = Message::find($id);
-            return view('crud')->with([
-                'message' => $message
-            ]);
-        }
-
-    public function editMessage($id)
+    public function editMessage($id = null)
     {
         $message = Message::find($id);
-//        $messagesForContact = $contact->messages()->pluck('messages.id')->toArray();
-        return view('edit')->with([
-            'message' => $message
 
+        $tags = Tag::getForCheckboxes();
+
+        $tagsForThisMessage = $message->tags->pluck('id')->toArray();
+
+        return view('edit')->with([
+            'message' => $message,
+            'tags' => $tags,
+            'tagsForThisMessage' => $tagsForThisMessage
         ]);
     }
 
-    public function practiceX()
+    public function updateMessage(Request $request, $id)
     {
-        # Instantiate a new Message Model object
-        $message = new Message();
+        $request->validate([
+            'name' => 'string|required',
+            'location' => 'string|required',
+            'story' => 'string|required|max:500'
+        ]);
 
-        # Set the properties
-        $message->name = 'Harry Potter and the Sorcerer\'s Stone';
-        $message->location = 'Newark';
-        $message->story = 'It works!';
+        $message = Message::find($id);
 
-        # Invoke the Eloquent `save` method to generate a new row in the
-        # `books` table, with the above data
+        $message->tags()->sync($request->tags);
+
+        $message->name = $request->name;
+        $message->location = $request->location;
+        $message->story = $request->story;
         $message->save();
 
-        dump('Added: ' . $message->name);
+        return redirect('/messages/')->with([
+            'alert' => 'Your changes were saved.'
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $message = Message::find($id);
+        $message->tags()->detach();
+        $message->delete();
+
+        return redirect('/messages');
+    }
+
+    public function about()
+    {
+        return view('about');
     }
 
 }
+
+
 
 
 

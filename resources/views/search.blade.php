@@ -28,13 +28,10 @@
                           class='form-control'
                           name="story"
                           rows="5"></textarea>
-                {{--{{old('story')}}--}}
 
 
                 <small id="emailHelp" class="form-text">
-                    {{--@foreach($errors->all() as $error)--}}
-                    {{--{{$error}}--}}
-                    {{--@endforeach--}}
+
                 </small>
             @else
                 <textarea id="story"
@@ -42,7 +39,6 @@
                           name="story"
                           rows="5"
                           placeholder="How has Fox News ruined your relationship with loved ones?">
-                          {{--{{($story}}--}}
                 </textarea>
             @endif
         </div>

@@ -33,37 +33,61 @@ Route::get('/debug', function () {
  */
 Route::get('/', 'WelcomeController');
 
-
-/*
- * Add Testimonials
- */
-Route::get('/messages/create', 'MessageController@create');
-
-Route::post('/messages/post', 'MessageController@store');
-
 /*
  * Show All Testimonials
  */
-Route::get('/messages/search', 'MessageController@index');
-
-
+Route::get('/messages', 'MessageController@index');
 
 /*
- * Edit Testimonials - Single Viewing
+ * Add Testimonials - View
  */
-Route::get('/messages/{id}', 'MessageController@crud');
+Route::get('/messages/create', [
+    'middleware' => 'auth',
+    'uses' => 'MessageController@create'
+]);
 
+/*
+ * Add Testimonials - Process
+ */
+
+Route::post('/messages', 'MessageController@store');
+
+/*
+ * Edit Single Testimonial - View
+ */
 Route::get('/messages/{id}/edit', 'MessageController@editMessage');
-Route::get('/messages/{id}/delete', 'MessageController@deleteMessage');
 
+/*
+ * Edit Single Testimonial - Process
+ */
 Route::put('/messages/{id}', 'MessageController@updateMessage');
 
+/*
+ * Delete Single Testimonial
+ */
+Route::delete('/messages/{id}/delete', 'MessageController@destroy');
 
 #######
 
-Route::get('/test2', 'MessageController@practiceX');
 
+Auth::routes();
 
-Route::get('/test', function () {
-    return view('abc');
+Route::get('/show-login-status', function () {
+    $user = Auth::user();
+
+    if ($user) {
+        dump('You are logged in.', $user->toArray());
+    } else {
+        dump('You are not logged in.');
+    }
+
+    return;
 });
+
+/*
+ * View About page
+ */
+Route::get('/about', 'MessageController@about');
+
+
+

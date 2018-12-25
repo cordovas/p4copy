@@ -2,12 +2,23 @@
 
 return [
 
+# Guest navigation links
     'nav' => [
         '/' => 'Home',
+        '/messages' => 'View testimonials',
+        '/about' => 'About',
+        '/register' => 'Register',
+        '/login' => 'Login',
+    ],
+
+# Logged-in user navigation links
+    'nav1' => [
+        '/' => 'Home',
         '/messages/create' => 'Add testimonial',
-        '/messages/search' => 'View testimonials',
+        '/messages' => 'View testimonials',
         '/about' => 'About',
     ],
+
 
     /*
     |--------------------------------------------------------------------------

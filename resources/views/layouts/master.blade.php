@@ -15,12 +15,11 @@
 
     @stack('head')
 </head>
-<body>
+<body class='card container'>
 
-    <header class="page-header">
-        <h1>Delete Fox News</h1>
-        @include('modules.nav')
-    </header>
+<header class="page-header">
+    @include('modules.nav')
+</header>
 
 <section>
     @yield('content')
@@ -28,9 +27,9 @@
 
 <p>
 
-<footer>
-    &copy; {{ date('Y') }}
-</footer>
+    <footer>
+        &copy; {{ date('Y') }}
+    </footer>
 
 
 </body>
